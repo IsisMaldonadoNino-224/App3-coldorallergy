@@ -19,7 +19,7 @@ Brief Description of Goal of Code:
 Diagnostic tool to distinguish between cold and allergies
  
 Known Issues:
-The burnt orange color isnt there--> <!--somehow burnt orange color disappered but dont know how-->
+The burnt orange color isnt there--> 
 
 	
 <head> 
@@ -43,9 +43,7 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 		cold_count = cold_count + 1;
 		console.log("Cold count: " + cold_count);
 	} 
-<!--somehow this is what the gitub gemini told me i needed to add in order for the codes to work although
-	it was not this long on the original app 3, bu maybe think it is because of the number of questions-->
-<!-- changes allergy counts and something happened to the app on the other end therefore left it how it is-->
+
 	function goToPage(pageId){
 		// Hide all pages
 		var pages = document.querySelectorAll('.page');
@@ -58,8 +56,6 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 		var targetPage = document.getElementById(pageId);
 		targetPage.style.display = 'block';
 		targetPage.classList.add('active');
-<!--also got help from gemini to figure out how the results page worked and why it wasnt calculating it by
-	percentages but rather by questions answered-->
 		// Show results if on results page
 		if(pageId === 'results'){
 			showResults();
@@ -77,9 +73,7 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 		}
 	}
 </script>
-<!-- added some stuff from edits that gemini gave me and also from the original copy of the app 3
-	took me a lot of tries to change the font and yes and no answer colors but I used gemini to help, 
-	somehow ended up deleting the burt orange headlines but I got color on the boxes-->
+
 <style>	
 	body {
 		margin: 0em;
@@ -90,20 +84,20 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 		width: 100%;
 		min-height: 100vh;
 		position: relative;
-		overflow-y: auto; <!--this is where the deleting happened im pretty sure and couldnt get back orange-->
+		overflow-y: auto; 
 	}
 	.page.active {
 		display: block !important;
 	}
 	</style>
-<!--from here is where the code works okay but the colors arent showing up-->
+
 	<body>
 	<!-- HOME PAGE -->
 	<div id="home" class="page active">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Cold or Allergies?</h1>
 		</div>
-		<!--copied this from the orignal font over to this one but chnages up the color and type of button-->
+		
 		<div id="content" class="w3-container">
 			<p>Are you feeling like you might have a cold but wonder if it is allergies? Answer a few short questions to find out!</p>
 			
@@ -114,26 +108,24 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 			<p><strong>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</strong></p>
 		</div>
 	</div>
-<!--will use this question format for the other questions-->
 	<!-- QUESTION 1 -->
 	<div class="page" id="one">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 1</h1>
 		</div>
-	<!--added color chnages to the buttons from w3 examples/codinng-->
+	
 		<div id="content" class="w3-container">
 			<p>Are your eyes watery or itchy?</p>    
 			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('two')">Yes</button>
 			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('two')">No</button>
 		</div>
 	</div>
-<!--changed the values of colors and also used this same font for each extra question I had-->
+
 	<!-- QUESTION 2 -->
 	<div class="page" id="two">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 2</h1>
 		</div>
-<!--used the github gemini provided to help solve for the codes on the questions and how to insert the buttons-->
 		<div id="content" class="w3-container">
 			<p>Do you have a fever?</p>
 			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('three')">Yes</button>
@@ -144,16 +136,16 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 	<!-- QUESTION 3 --> <!--changes to question number-->
 	<div class="page" id="three">
 		<div id="header" class="w3-container w3-flat-carrot">
-			<h1>Question 3</h1> <!--changes to question number-->
+			<h1>Question 3</h1> 
 		</div>
-<!--normal copy of app 3 from DIY-->
+
 		<div id="content" class="w3-container">
 			<p>Do you have a sore throat?</p>
-			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button> <--added page number-->
-			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('four')">No</button> <--added page number-->
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button> 
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('four')">No</button> 
 		</div>
 	</div>
-<!--will add more questions after this one, anything that doesnt work on the next few pages is code replication faliure-->
+
 	<!-- QUESTION 4 -->
 	<div class="page" id="four">
 		<div id="header" class="w3-container w3-flat-carrot">
@@ -162,12 +154,11 @@ The burnt orange color isnt there--> <!--somehow burnt orange color disappered b
 		
 		<div id="content" class="w3-container">
 			<p>Are your symptoms seasonal or chronic?</p> <!--switched the results page to question 6-->
-			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('five')">Yes (Seasonal/Chronic)</button> <!--changed page number-->
-			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button> <!--changed page number-->
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('five')">Yes (Seasonal/Chronic)</button> 
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button> 
 		</div>
 	</div>
-<!--added 2 more questions as rubric said and also copied the same format as the other four questions down to these ones,
-		I witched the responses around to add and also changes the results page-->
+
 		<!-- QUESTION 5 -->
 	<div class="page" id="five">
 		<div id="header" class="w3-container w3-flat-carrot">
