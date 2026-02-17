@@ -89,13 +89,13 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 		width: 100%;
 		min-height: 100vh;
 		position: relative;
-		overflow-y: auto; <!--this is where the deleting happened im oretty sure and couldnt get back orange-->
+		overflow-y: auto; <!--this is where the deleting happened im pretty sure and couldnt get back orange-->
 	}
 	.page.active {
 		display: block !important;
 	}
 	</style>
-
+<!--from here is where the code works okay but the colors arent showing up-->
 	<body>
 	<!-- HOME PAGE -->
 	<div id="home" class="page active">
@@ -113,13 +113,13 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 			<p><strong>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</strong></p>
 		</div>
 	</div>
-
+<!--will use this question format for the other questions-->
 	<!-- QUESTION 1 -->
 	<div class="page" id="one">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 1</h1>
 		</div>
-		
+	<!--added color chnages to the buttons from w3 examples/codinng-->
 		<div id="content" class="w3-container">
 			<p>Are your eyes watery or itchy?</p>    
 			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('two')">Yes</button>
@@ -148,8 +148,8 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 <!--normal copy of app 3 from DIY-->
 		<div id="content" class="w3-container">
 			<p>Do you have a sore throat?</p>
-			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button>
-			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('four')">No</button>
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button> <--added page number-->
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('four')">No</button> <--added page number-->
 		</div>
 	</div>
 
@@ -161,8 +161,8 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 		
 		<div id="content" class="w3-container">
 			<p>Are your symptoms seasonal or chronic?</p> <!--switched the results page to question 6-->
-			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('five')">Yes (Seasonal/Chronic)</button>
-			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button>
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('five')">Yes (Seasonal/Chronic)</button> <!--changed page number-->
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button> <!--changed page number-->
 		</div>
 	</div>
 <!--added 2 more questions as rubric said and also copied the same format as the other four questions down to these ones,
@@ -172,7 +172,7 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 5</h1>
 		</div>
-		
+	<!--switched the question number from 4 to 5-->
 		<div id="content" class="w3-container">
 			<p>Is your skin itchy?</p>
 			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('six')">Yes</button>
@@ -183,7 +183,7 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 		calculation to make sure the response went to the right diagnostic-->
 		<!-- QUESTION 6 -->
 	<div class="page" id="six">
-		<div id="header" class="w3-container w3-flat-carrot">
+		<div id="header" class="w3-container w3-flat-carrot"> <!--added question six-->
 			<h1>Question 6</h1>
 		</div>
 	<!--got these buttons from w3 and used code for their color, although I flipped the cold add and allergy add for the buttons-->
@@ -193,6 +193,7 @@ The burnt orange color isnt there <!--somehow burnt orange color disappered but 
 			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('results')">No</button>
 		</div>
 	</div>
+<!--for some reason questions five and six only show up certain times/with certain choices but cant figure out how to change this-->
 <!--didnt change resukts page but somehow the orange color is still in there but wont show up
 		will need to figure out how to fix this but not that big of a problem bucause the app still works fine-->
 		<!-- RESULTS PAGE -->
