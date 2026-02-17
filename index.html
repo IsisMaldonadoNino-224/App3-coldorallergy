@@ -157,12 +157,38 @@ None currently
 		
 		<div id="content" class="w3-container">
 			<p>Are your symptoms seasonal or chronic?</p>
-			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('results')">Yes (Seasonal/Chronic)</button>
-			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('results')">No (New/Temporary)</button>
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('five')">Yes (Seasonal/Chronic)</button>
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button>
 		</div>
 	</div>
 
-	<!-- RESULTS PAGE -->
+		<!-- QUESTION 5 -->
+	<div class="page" id="five">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 5</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Is your skin itchy?</p>
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('six')">Yes</button>
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('six')">No</button>
+		</div>
+	</div>
+
+		<!-- QUESTION 6 -->
+	<div class="page" id="six">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 5</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Do you have discomfort in your trachea?</p>
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('results')">Yes</button
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('results')">No</button>
+		</div>
+	</div>
+		
+		<!-- RESULTS PAGE -->
 	<div class="page" id="results">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Your Results</h1>
