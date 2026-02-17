@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 <html> 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demo purposes.
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demo...
  
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
@@ -49,10 +49,13 @@ None currently
 		var pages = document.querySelectorAll('.page');
 		pages.forEach(function(page) {
 			page.style.display = 'none';
+			page.classList.remove('active');
 		});
 		
 		// Show the target page
-		document.getElementById(pageId).style.display = 'block';
+		var targetPage = document.getElementById(pageId);
+		targetPage.style.display = 'block';
+		targetPage.classList.add('active');
 		
 		// Show results if on results page
 		if(pageId === 'results'){
@@ -85,7 +88,7 @@ None currently
 		overflow-y: auto;
 	}
 	.page.active {
-		display: block;
+		display: block !important;
 	}
 	</style>
 
