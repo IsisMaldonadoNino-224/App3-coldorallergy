@@ -1,9 +1,8 @@
 <!DOCTYPE html> 
 <html> 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demo purposes.
  
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
  
 Authors in chronological order of contribution:
 Tim Riedel
@@ -17,154 +16,170 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+Diagnostic tool to distinguish between cold and allergies
  
 Known Issues:
-blah, blah, blah, blah
-
-https://www.w3schools.com/w3css/default.asp
-https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
+None currently
 -->
 	
-   <head> 
-      <title>Hello World</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
-
+<head> 
+	<title>Cold or Allergies?</title>  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/colors_flat.css">
+</head>
 
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+	var allergy_count = 0;
+	var cold_count = 0;
 
+	function allergyAdd(){
+		allergy_count = allergy_count + 1;
+		console.log("Allergy count: " + allergy_count);
+	}
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
+	function coldAdd(){
+		cold_count = cold_count + 1;
+		console.log("Cold count: " + cold_count);
+	}
 
-        }
+	function goToPage(pageId){
+		// Hide all pages
+		var pages = document.querySelectorAll('.page');
+		pages.forEach(function(page) {
+			page.style.display = 'none';
+		});
+		
+		// Show the target page
+		document.getElementById(pageId).style.display = 'block';
+		
+		// Show results if on results page
+		if(pageId === 'results'){
+			showResults();
+		}
+	}
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
-
-  </script>
-
-
+	function showResults(){
+		var resultText = document.getElementById('resultText');
+		if(allergy_count > cold_count){
+			resultText.innerHTML = '<h2>You likely have Allergies</h2><p>Allergy score: ' + allergy_count + '</p>';
+		} else if(cold_count > allergy_count){
+			resultText.innerHTML = '<h2>You likely have a Cold</h2><p>Cold score: ' + cold_count + '</p>';
+		} else {
+			resultText.innerHTML = '<h2>Results are Inconclusive</h2><p>Your scores are equal. Consider consulting a doctor.</p>';
+		}
+	}
+</script>
 
 <style>	
-.body {
-     margin: 0em;
-}
+	body {
+		margin: 0em;
+	}
 
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
+	.page {
+		display: none;
+		width: 100%;
+		min-height: 100vh;
+		position: relative;
+		overflow-y: auto;
+		background-color: hsl(0,0%,100%);
+	}
 
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
+	.page.active {
+		display: block;
+	}
+
+	#home {
+		display: block;
+	}
 </style>
 
 <body>
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
-</div>
-	
-<div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
-	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
-	
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-</div> <!-- adding this because it seems to be missing????? -->
-	
-<div class="page" id="one">
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
+	<!-- HOME PAGE -->
+	<div id="home" class="page active">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Cold or Allergies?</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Are you feeling like you might have a cold but wonder if it is allergies? Answer a few short questions to find out!</p>
+			
+			<button class="w3-btn w3-grey w3-round" onclick="goToPage('one')">Get Started</button>
+			
+			<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.</p>
+			
+			<p><strong>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</strong></p>
+		</div>
 	</div>
-	
-    	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    
-    	<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css"
-<body>
-<div class="w3-container">
-  <h2></h2>
-  <input type="button" class="w3-button w3-blue" value="Yes">
-  <button class="w3-button w3-red">No</button>
-</div>
 
-<div class="page" id="two">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 2</h1>
+	<!-- QUESTION 1 -->
+	<div class="page" id="one">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 1</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Are your eyes watery or itchy?</p>    
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('two')">Yes</button>
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('two')">No</button>
+		</div>
 	</div>
-	
-	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p>
-	<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css"
-<body>
-<div class="w3-container">
-  <h2></h2>
-  <input type="button" class="w3-button w3-blue" value="Yes">
-  <button class="w3-button w3-red">No</button>
-</div>	
 
-<div class="page" id="three">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 3</h1>
+	<!-- QUESTION 2 -->
+	<div class="page" id="two">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 2</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Do you have a fever?</p>
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('three')">Yes</button>
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('three')">No</button>
+		</div>
 	</div>
-	
-	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p>
-	<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css"
-<body>
-<div class="w3-container">
-  <h2></h2>
-  <input type="button" class="w3-button w3-blue" value="Yes">
-  <button class="w3-button w3-red">No</button>
-</div>	
 
-<div class="page" id="four">
-	<div class="w3-container w3-flat-carrot">
-		<h1>Question 4</h1>
+	<!-- QUESTION 3 -->
+	<div class="page" id="three">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 3</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Do you have a sore throat?</p>
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button>
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('four')">No</button>
+		</div>
 	</div>
-	
-	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p>
-	<html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css"
-<body>
-<div class="w3-container">
-  <h2></h2>
-  <input type="button" class="w3-button w3-blue" value="Yes">
-  <button class="w3-button w3-red">No</button>
-</div>	
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
+
+	<!-- QUESTION 4 -->
+	<div class="page" id="four">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Question 4</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p>Are your symptoms seasonal or chronic?</p>
+			<button class="w3-button w3-blue" onclick="allergyAdd(); goToPage('results')">Yes (Seasonal/Chronic)</button>
+			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('results')">No (New/Temporary)</button>
+		</div>
+	</div>
+
+	<!-- RESULTS PAGE -->
+	<div class="page" id="results">
+		<div id="header" class="w3-container w3-flat-carrot">
+			<h1>Your Results</h1>
+		</div>
+		
+		<div id="content" class="w3-container">
+			<p id="resultText"></p>
+			<button class="w3-button w3-grey" onclick="location.reload()">Start Over</button>
+		</div>
+	</div>
+
+	<footer class="w3-bottom w3-container w3-flat-carrot">
+		<p>DIY Diagnostics Stream - University of Texas at Austin</p>
+	</footer>
 
 </body>
 </html>
