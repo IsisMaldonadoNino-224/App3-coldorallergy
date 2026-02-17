@@ -6,7 +6,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Isis Maldonado Nino <!--added my name-->
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -19,7 +19,7 @@ Brief Description of Goal of Code:
 Diagnostic tool to distinguish between cold and allergies
  
 Known Issues:
-None currently
+The burnt orange color isnt there <!--somehow burnt orange color disappered but dont know how-->
 -->
 	
 <head> 
@@ -38,12 +38,13 @@ None currently
 		allergy_count = allergy_count + 1;
 		console.log("Allergy count: " + allergy_count);
 	}
-
+<!--somehow this is what the gitub gemini told me i needed to add in order for the codes to work although
+	it was not this long on the original app 3, bu maybe think it is because of the number of questions-->
 	function coldAdd(){
 		cold_count = cold_count + 1;
 		console.log("Cold count: " + cold_count);
 	}
-
+<!-- changes allergy counts and something happened to the app on the other end therefore left it how it is-->
 	function goToPage(pageId){
 		// Hide all pages
 		var pages = document.querySelectorAll('.page');
@@ -56,7 +57,8 @@ None currently
 		var targetPage = document.getElementById(pageId);
 		targetPage.style.display = 'block';
 		targetPage.classList.add('active');
-		
+<!--also got help from gemini to figure out how the results page worked and why it wasnt calculating it by
+	percentages but rather by questions answered-->
 		// Show results if on results page
 		if(pageId === 'results'){
 			showResults();
@@ -74,7 +76,9 @@ None currently
 		}
 	}
 </script>
-
+<!-- added some stuff from edits that gemini gave me and also from the original copy of the app 3
+	took me a lot of tries to change the font and yes and no answer colors but I used gemini to help, 
+	somehow ended up deleting the burt orange headlines but I got color on the boxes-->
 <style>	
 	body {
 		margin: 0em;
@@ -85,7 +89,7 @@ None currently
 		width: 100%;
 		min-height: 100vh;
 		position: relative;
-		overflow-y: auto;
+		overflow-y: auto; <!--this is where the deleting happened im oretty sure and couldnt get back orange-->
 	}
 	.page.active {
 		display: block !important;
@@ -98,7 +102,7 @@ None currently
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Cold or Allergies?</h1>
 		</div>
-		
+		<!--copied this from the orignal font over to this one but chnages up the color and type of button-->
 		<div id="content" class="w3-container">
 			<p>Are you feeling like you might have a cold but wonder if it is allergies? Answer a few short questions to find out!</p>
 			
@@ -122,13 +126,13 @@ None currently
 			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('two')">No</button>
 		</div>
 	</div>
-
+<!--changed the values of colors and also used this same font for each extra question I had-->
 	<!-- QUESTION 2 -->
 	<div class="page" id="two">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 2</h1>
 		</div>
-		
+<!--used the github gemini provided to help solve for the codes on the questions and how to insert the buttons-->
 		<div id="content" class="w3-container">
 			<p>Do you have a fever?</p>
 			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('three')">Yes</button>
@@ -141,7 +145,7 @@ None currently
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 3</h1>
 		</div>
-		
+<!--normal copy of app 3 from DIY-->
 		<div id="content" class="w3-container">
 			<p>Do you have a sore throat?</p>
 			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('four')">Yes</button>
@@ -161,7 +165,8 @@ None currently
 			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('five')">No (New/Temporary)</button>
 		</div>
 	</div>
-
+<!--added 2 more questions as rubric said and also copied the same format as the other four questions down to these ones,
+		I witched the responses around to add and also changes the results page-->
 		<!-- QUESTION 5 -->
 	<div class="page" id="five">
 		<div id="header" class="w3-container w3-flat-carrot">
@@ -174,20 +179,22 @@ None currently
 			<button class="w3-button w3-red" onclick="coldAdd(); goToPage('six')">No</button>
 		</div>
 	</div>
-
+<!--acidentally erased some coding that was part of question four therefore had to rearange the numbering of pages and 
+		calculation to make sure the response went to the right diagnostic-->
 		<!-- QUESTION 6 -->
 	<div class="page" id="six">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 6</h1>
 		</div>
-		
+	<!--got these buttons from w3 and used code for their color, although I flipped the cold add and allergy add for the buttons-->
 		<div id="content" class="w3-container">
 			<p>Do you have discomfort in your trachea?</p>
 			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('results')">Yes</button
 			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('results')">No</button>
 		</div>
 	</div>
-		
+<!--didnt change resukts page but somehow the orange color is still in there but wont show up
+		will need to figure out how to fix this but not that big of a problem bucause the app still works fine-->
 		<!-- RESULTS PAGE -->
 	<div class="page" id="results">
 		<div id="header" class="w3-container w3-flat-carrot">
