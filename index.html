@@ -38,7 +38,7 @@ The burnt orange color isnt there-->
 
 	function allergyAdd(){
 		allergy_count = allergy_count + 1;
-		console.log("Allergy count: " + allergy_count);
+		console.log("Allergy count: " + allergy_count); 
 	}
 
 	function coldAdd(){
@@ -54,11 +54,11 @@ The burnt orange color isnt there-->
 			page.classList.remove('active');
 		});
 		
-		// Show the target page
+		// Show the target page <1--this will be used for allergy count, cold count, and results page-->
 		var targetPage = document.getElementById(pageId);
 		targetPage.style.display = 'block';
 		targetPage.classList.add('active');
-		// Show results if on results page
+		// Show results if on results page 
 		if(pageId === 'results'){
 			showResults();
 		}
@@ -75,6 +75,7 @@ The burnt orange color isnt there-->
 		}
 	}
 </script>
+<!--this part of the code wont let me type comments in the lines therefore I am typing them here, but the previous code will be the results-->
 <!--also got help from gemini to figure out how the results page worked and why it wasnt calculating it by
 	percentages but rather by questions answered-->
 <!-- added some stuff from edits that gemini gave me and also from the original copy of the app 3
@@ -135,8 +136,8 @@ The burnt orange color isnt there-->
 		</div>
 		<div id="content" class="w3-container">
 			<p>Do you have a fever?</p>
-			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('three')">Yes</button>
-			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('three')">No</button>
+			<button class="w3-button w3-blue" onclick="coldAdd(); goToPage('three')">Yes</button> <!--switched-->
+			<button class="w3-button w3-red" onclick="allergyAdd(); goToPage('three')">No</button> <!--switched-->
 		</div>
 	</div> <!--changed the values of colors and also used this same font for each extra question I had-->
 
